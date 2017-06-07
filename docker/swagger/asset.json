@@ -1,0 +1,88 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Asset Service",
+    "title": "Asset Service",
+    "version": "1.0",
+    "contact": {
+      "name": "moxion@moxion.com"
+    },
+    "license": {
+      "name": "MoxionServices",
+      "url": ""
+    }
+  },
+  "host": "RESOURCE-IP",
+  "schemes": [
+    "ws"
+  ],
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Api",
+      "description": "Services"
+    }
+  ],
+  "paths": {
+    "/asset/test": {
+      "endpoint": {
+        "tags": [
+          "Api"
+        ],
+        "summary": "Test service",
+        "description": "Test service",
+        "operationId": "getTestUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "message",
+            "in": "query",
+            "description": "message payload",
+            "required": true,
+            "type": "string",
+            "input": "text"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          },
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal server error"
+          },
+          "503": {
+            "description": "Service not available"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Response": {
+      "properties": {
+        "data": {
+          "type": "object"
+        },
+        "hasError": {
+          "type": "boolean"
+        },
+        "responseCode": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    }
+  }
+}
+

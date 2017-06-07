@@ -1,0 +1,16 @@
+version: '2'
+services:
+  moxion-service:
+     build: .
+     hostname: moxion-service
+     container_name: moxion-service
+     image: moxion/moxion-service
+     restart: always
+     networks:
+       - public
+     ports:
+       - "7004:7004"
+  
+networks:
+  public:
+    driver: bridge
